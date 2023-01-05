@@ -1,3 +1,7 @@
 export default function Header() {
-    return <h1>Header</h1>
+    return <div className="header">
+        <div className="top-header">
+        </div>
+        <div className="nav-bar"></div>
+    </div>
 }
