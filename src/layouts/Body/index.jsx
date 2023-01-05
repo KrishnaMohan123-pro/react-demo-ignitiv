@@ -1,3 +1,10 @@
+import Home from '../../pages/Home';
+import Questions from '../../pages/Questions'
+import User from '../../pages/User'
 export default function Body() {
-    return <h1>Body</h1>
+    return <div className="body">
+      <Home />
+      <Questions />
+      <User />
+    </div>
 }
