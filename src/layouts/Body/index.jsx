@@ -1,10 +1,16 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Home from '../../pages/Home';
 import Questions from '../../pages/Questions'
-import User from '../../pages/User'
+import Dashboard from '../../pages/Dashboard'
 export default function Body() {
     return <div className="body">
-      <Home />
-      <Questions />
-      <User />
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/questions' element={<Questions />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+      </Routes>
+      </BrowserRouter>
     </div>
 }
