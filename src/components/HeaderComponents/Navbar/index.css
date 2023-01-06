@@ -1,0 +1,23 @@
+.nav-bar {
+    background-color: #264653;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-items {
+    margin-right: 15px;
+    margin-left: 15px;
+    color: #edf2f4;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 8px;
+    transition: 0.3s;
+}
+.nav-items:hover {
+    background-color: #edf2f4;
+    color: #e76f51;
+}
