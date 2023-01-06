@@ -13,7 +13,7 @@ import './index.css';
 import AnswerCard from '../AnswerCard';
 
 function QuestionCard(props) {
-      console.log(props.data)
+      // console.log(props.data)
     const Data = props.data;
     // const classes = useStyles();
     // const bull = <span className={classes.bullet}>•</span>
@@ -21,8 +21,7 @@ function QuestionCard(props) {
             <Grid container spacing={3}>
                     {Data.map((item, index)=> (
                         <Grid item xs={12} key={item.id}>
-                          {console.log("item", item)}
-                            
+                          {/* {console.log("item", item)} */}
                             <Card className="QuestionCard Container" variant="outlined">
                               <CardContent>
                                 <Typography variant="h5" component="h2">
@@ -30,15 +29,6 @@ function QuestionCard(props) {
                                 </Typography>
                               </CardContent>
                               <CardActions>
-                                  {/*
-                                      <FormControl component="fieldset">
-                                        <FormLabel component="legend">Gender</FormLabel>
-                                        <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-                                          <FormControlLabel value="male" control={<Radio />} label="Male" />
-                                          <FormControlLabel value="other" control={<Radio />} label="Other" />
-                                          <FormControlLabel value="disabled" disabled control={<Radio />} label="(Disabled option)" />
-                                        </RadioGroup>
-                                      </FormControl> */}
                                   <AnswerCard item={item}/>
                               </CardActions>
                             </Card>
