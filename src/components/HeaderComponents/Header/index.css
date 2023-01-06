@@ -1,3 +1,6 @@
+.logoPart {
+    text-align: center;
+}
 .ignitivLogo {
     filter: invert(90%);
     max-height: 60px;
