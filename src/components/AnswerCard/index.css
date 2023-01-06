@@ -1,0 +1,9 @@
+.answerCardRadioGroup{
+    padding-left: 20px;
+}
+.MuiFormControlLabel-root{
+        align-items: flex-start !important;
+}
+.MuiIconButton-root{
+    padding: 0 10px 0 0 !important;
+}
