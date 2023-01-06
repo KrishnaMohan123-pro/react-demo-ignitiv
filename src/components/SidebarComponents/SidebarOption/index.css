@@ -2,6 +2,7 @@
     display: block !important;
     text-align: left;
     font-size: 0.8rem !important;
+    padding-left: 10px;
 }
 .side-bar-option span {
     font-size: 0.8rem !important;

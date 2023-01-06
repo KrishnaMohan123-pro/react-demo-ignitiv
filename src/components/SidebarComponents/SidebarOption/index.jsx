@@ -11,5 +11,6 @@ export default function SidebarOptions(props) {
     label={props.value}
     labelPlacement="end"
     className="side-bar-option"
+    checked={false}
   />
 }
