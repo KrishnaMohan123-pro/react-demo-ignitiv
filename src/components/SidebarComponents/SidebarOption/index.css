@@ -1,0 +1,8 @@
+.side-bar-option {
+    display: block !important;
+    text-align: left;
+    font-size: 0.8rem !important;
+}
+.side-bar-option span {
+    font-size: 0.8rem !important;
+}
