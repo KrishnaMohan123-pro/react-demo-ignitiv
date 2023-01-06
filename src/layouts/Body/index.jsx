@@ -25,7 +25,7 @@ export default function Body() {
           <Grid item xs={showSidebar ?  3 : false}>
             <Sidebar/>
           </Grid>
-          <Grid item xs={showSidebar ? 9 : 12} className='body-content'>
+          <Grid item xs={showSidebar ? 9 : 12} className={showSidebar ? 'body-content-border': ''}>
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/questions' element={<Questions />} />
