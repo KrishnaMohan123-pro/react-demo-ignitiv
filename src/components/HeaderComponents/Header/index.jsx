@@ -8,7 +8,7 @@ export default function Header() {
     return <>
         <div className="headerMain">
             <Grid container>
-                <Grid item xs={4}>
+                <Grid className="logoPart" item xs={4}>
                     <Link to="/">
                         <img className="ignitivLogo" src={logo} alt="Ignitiv Logo"></img>
                     </Link>
