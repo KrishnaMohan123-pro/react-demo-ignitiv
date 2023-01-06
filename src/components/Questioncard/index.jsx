@@ -17,8 +17,11 @@ function QuestionCard(props) {
     const Data = props.data;
     // const classes = useStyles();
     // const bull = <span className={classes.bullet}>•</span>
-    const submitTest=()=>{
-      console.log("test submit");
+    // const submitTest=()=>{
+    //   console.log("test submit");
+    // }
+    const submitQuestionCard=()=>{
+      console.log("answer submit");
     }
         return (
             <div>
@@ -35,12 +38,15 @@ function QuestionCard(props) {
                                 <CardActions>
                                     <AnswerCard item={item}/>
                                 </CardActions>
+                                <br/>
+                                <br/>
+                                <Button variant="contained" color="primary" type='submit' onClick={submitQuestionCard}> Submit Answer </Button>
                               </Card>
                           </Grid>
                       ))}
               </Grid>
               <br/>
-            <Button variant="contained" color="primary" type='submit' onClick={submitTest}> Submit Test </Button>
+            {/* <Button variant="contained" color="primary" type='submit' onClick={submitTest}> Submit Test </Button> */}
             </div>
           )
     }
