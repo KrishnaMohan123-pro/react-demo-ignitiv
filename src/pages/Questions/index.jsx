@@ -9,20 +9,28 @@ const QuestionsContext = createContext();
 
 export default function Questions() {
     const [searchParams, setSearchParams] = useSearchParams();
-    const category = searchParams.get('category')
+    const category = searchParams.get('category');
+    const limit = searchParams.get('limit') ? searchParams.get('limit') : '10';
+    const difficulty = searchParams.get('difficulty') ? searchParams.get('difficulty') : 'easy';
     const [questionsData, setQuestionsData] = useState({isLoading: true});
     useEffect(()=>{
-        fetchApi(createQuery(category))
-        .then(res =>res.json())
-        .then(data => {
-            setQuestionsData({questions:data, isLoading: false});
-        });
-    }, [category])
+         if (category) {
+            fetchApi(createQuery(category, difficulty, limit))
+            .then(res =>res.json())
+            .then(data => {
+                setQuestionsData({questions:data, isLoading: false});
+            });
+        }
+    }, [category, limit, difficulty]);
     return (<div>
-        {questionsData.isLoading ? <div>Loading</div>: <div>
-            <h1>Questions</h1>
-            <QuestionCard data={questionsData.questions} />
-            </div>}
+        {category ? 
+            questionsData.isLoading ? 
+                <div>Loading</div> : 
+                <div>
+                  <h1>Questions</h1>
+                  <QuestionCard data={questionsData.questions} />
+                </div> : 
+            <div>Please check the query</div>}
         </div>
     )
 }
