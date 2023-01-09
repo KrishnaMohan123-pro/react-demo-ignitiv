@@ -2,7 +2,7 @@
 import './index.css';
 export default function Home() {
 return (
-    <div class="main">
+    <div className='main'>
         <h1>Ignitiv Interview Test</h1>
         <h2>About Ignitiv</h2>
         <p>Ignitiv is a products and consulting MNC with development centers in the US, Canada and India. We deliver solutions that help global brands harness emerging disruptive technologies to enrich their customers’ experience in ways not imagined before.</p>

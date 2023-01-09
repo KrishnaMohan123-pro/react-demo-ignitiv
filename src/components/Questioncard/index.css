@@ -4,3 +4,9 @@
     /* width: revert; */
     text-align: start;
 }
+.MuiButton-root{
+    width: 150px;
+}
+.MuiFormControl-root{
+    align-items: center;
+}
