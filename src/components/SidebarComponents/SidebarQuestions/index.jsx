@@ -12,7 +12,6 @@ export default function SidebarQuestions() {
     for(let i = 10; i < 40; i+=5){
         numberOfQuestion.push(i);
     }
-    console.log(difficulty) 
     return <div className="side-bar-contents">
         <div className='options'>
         <Typography variant='h6'>Difficulty</Typography>
