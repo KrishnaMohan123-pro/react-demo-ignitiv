@@ -10,7 +10,6 @@ export default function SidebarQuestions() {
     const [searchParams, setSearchParams] = useSearchParams();
     const difficultyParam = searchParams.get('difficulty') ? searchParams.get('difficulty') : 'easy';
     const limitParam = searchParams.get('limit') ? searchParams.get('limit') : '10';
-    console.log(difficultyParam, limitParam);
     const [showMore, setShowMore] = useState({options1: false, options2: false});
     const { difficulty } = quizApiParams;
     const numberOfQuestion = [];
