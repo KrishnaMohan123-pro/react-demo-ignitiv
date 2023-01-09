@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./index.css";
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import logo from "../../../resources/light-logo-final.png";
 
