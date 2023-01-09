@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import QuestionCard from "../../components/Questioncard"
-import data from "../../data/data.json"
 
 import fetchApi from "../../services/quizapi";
 import createQuery from "../../services/quizapi/utility";
