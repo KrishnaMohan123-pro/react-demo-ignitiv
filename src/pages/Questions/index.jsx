@@ -1,11 +1,10 @@
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import QuestionCard from "../../components/Questioncard"
 
 import fetchApi from "../../services/quizapi";
 import createQuery from "../../services/quizapi/utility";
 
-const QuestionsContext = createContext();
 
 export default function Questions() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -14,16 +13,16 @@ export default function Questions() {
     const difficulty = searchParams.get('difficulty') ? searchParams.get('difficulty') : 'easy';
     const [questionsData, setQuestionsData] = useState({isLoading: true});
     useEffect(()=>{
-         if (category) {
+         if (category && category !== 'null') {
             fetchApi(createQuery(category, difficulty, limit))
             .then(res =>res.json())
             .then(data => {
                 setQuestionsData({questions:data, isLoading: false});
             });
-        }
+        } 
     }, [category, limit, difficulty]);
     return (<div>
-        {category ? 
+        {category && category !== 'null' ? 
             questionsData.isLoading ? 
                 <div>Loading</div> : 
                 <div>
