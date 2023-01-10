@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
     return (
         <div>
-            <Button type="button" color="Primary" onClick={handleOpen}>
+            <Button type="button" color="primary" onClick={handleOpen}>
                 {props.buttonText}
             </Button>
             <Modal
