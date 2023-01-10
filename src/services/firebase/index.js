@@ -1,19 +1,23 @@
-import { auth } from './config';
+import { auth, db } from './config';
 import {  createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import {  doc, setDoc, getDoc } from 'firebase/firestore'
 
 function createUser(email, password) {
-    console.log(auth)
-    createUserWithEmailAndPassword(auth, email, password)
-    .then(credentials => console.log('user credentials', credentials))
-    .catch((e) => console.log(e))
+    return createUserWithEmailAndPassword(auth, email, password)
 }
 
 function signIn(email, password) {
-    signInWithEmailAndPassword(auth, email, password)
-    .then(credentials => console.log('signin credentials', credentials))
-    .catch(e => console.log(e));
+    return signInWithEmailAndPassword(auth, email, password)
+}
+
+function addUserToDB(userData) {
+    return setDoc(doc(db, 'users', userData.id), {...userData})
+}
+
+function getUserFromDB(id) {
+    return getDoc(doc(db, 'users', id))
 }
 
 export {
-    createUser, signIn
+    createUser, signIn, addUserToDB, getUserFromDB
 };
