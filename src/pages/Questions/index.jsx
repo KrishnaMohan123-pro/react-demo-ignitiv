@@ -18,17 +18,23 @@ export default function Questions() {
             .then(res =>res.json())
             .then(data => {
                 setQuestionsData({questions:data, isLoading: false});
-            });
-        } 
+            })
+        }
     }, [category, limit, difficulty]);
+    if(questionsData.isLoading) {
+        return (<div>
+            Loading
+        </div>)
+    }
+    if(questionsData.questions.error) {
+        return (<div>{questionsData.questions.error}</div>)
+    }
     return (<div>
-        {category && category !== 'null' ? 
-            questionsData.isLoading ? 
-                <div>Loading</div> : 
+        {category && category !== 'null' ?
                 <div>
                   <h1>Questions</h1>
                   <QuestionCard data={questionsData.questions} />
-                </div> : 
+                </div> :
             <div>Please check the query</div>}
         </div>
     )
