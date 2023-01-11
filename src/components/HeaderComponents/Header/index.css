@@ -7,3 +7,9 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
+.loginLink {
+    padding-right: 0.4%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
