@@ -24,6 +24,8 @@ function logout() {
     signOut(auth)
     .then(() => {
         console.log('logged out successfully');
+        document.cookie = "isUserLoggedIn = false; path=/";
+        window.location.reload();
     })
 }
 

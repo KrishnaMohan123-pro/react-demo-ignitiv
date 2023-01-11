@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import "./index.css";
-import { signIn } from '../../services/firebase';
+import { addUserToDB, createUser, isUserLoggedIn, signIn } from '../../services/firebase';
 
 export default function LoginForm(props) {
     const [showLoginForm, setShowLoginForm] = useState(true);
@@ -57,10 +57,31 @@ export default function LoginForm(props) {
         e.preventDefault();
         if(showLoginForm) {
             signIn(loginData.email, loginData.password)
-            .then(res => console.log("Successfully logged in", res))
+            .then(res => {
+                console.log("Successfully logged in", res);
+                isUserLoggedIn();
+                window.location.reload();
+            })
             .catch(e => console.log("Login Failed", e));
         } else {
             console.log('register form data', signUpData);
+            createUser(signUpData.email, signUpData.password)
+            .then(credentials => {
+                const user = {};
+                user.email = credentials.user.email;
+                user.phone = signUpData.phone;
+                user.id = credentials.user.uid;
+                user.fname = signUpData.fname;
+                user.lname = signUpData.lname;
+                return addUserToDB(user);
+            })
+            .then(doc => {
+                isUserLoggedIn();
+                window.location.reload();
+            })
+            .catch(e => {
+                console.log(e);
+            });
             props.openModal(false);
         }
         

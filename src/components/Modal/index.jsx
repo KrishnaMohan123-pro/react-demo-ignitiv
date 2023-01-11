@@ -6,6 +6,9 @@ import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
 import LoginForm from '../LoginForm';
 
+import isLoggedIn from '../../utility/userLoginStatus';
+import { logout } from '../../services/firebase';
+
 const useStyles = makeStyles((theme) => ({
     modal: {
       display: 'flex',
@@ -22,8 +25,7 @@ const useStyles = makeStyles((theme) => ({
   
   export default function TransitionsModal(props) {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
-  
+    const [open, setOpen] = React.useState(false);  
     const handleOpen = () => {
       setOpen(true);
     };
@@ -31,6 +33,18 @@ const useStyles = makeStyles((theme) => ({
     const handleClose = () => {
       setOpen(false);
     };
+    
+    function handleLogout() {
+      logout();
+    }
+
+    if(isLoggedIn) {
+      return <div>
+        <Button type='button' color="primary" onClick={handleLogout}>
+          Logout
+        </Button>
+      </div>
+    }
 
     return (
         <div>
