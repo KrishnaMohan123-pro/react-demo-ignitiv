@@ -6,7 +6,7 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 export default function AddressAndContact() {
   return (
     <div className='addressAndContact'>
-        <h4 className='sectionHeading'>Contact Us</h4>
+        <h3 className='sectionHeading'>Contact Us</h3>
         <address className='addressSection'>
         <LocationOnIcon /><span className='paddingleft10'>Swati Park, Veerbhadra Nagar, Baner, Pune, Maharashtra 411045</span>
         </address>

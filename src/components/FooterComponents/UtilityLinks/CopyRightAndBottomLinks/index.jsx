@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 import CopyrightIcon from '@material-ui/icons/Copyright';
-function UtilityLinks(props) {
+function CopyrightLinks(props) {
   return (
     <div className='copyrightSection'>
         <p className='copyrightText'><CopyrightIcon ></CopyrightIcon> <span className='copyrightTextSection'>Copyright 2023 | All Rights Reserved</span></p>
@@ -10,4 +10,4 @@ function UtilityLinks(props) {
   )
 }
 
-export default UtilityLinks
+export default CopyrightLinks

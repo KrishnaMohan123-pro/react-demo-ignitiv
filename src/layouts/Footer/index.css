@@ -1,6 +1,9 @@
 .footerSection{
     border: 1px solid black;
-    margin-top: 20px;
+    margin-top: 30px;
     background-color: #264653;
     min-height: 70px;
+}
+.footerTopSection{
+    padding-bottom: 15px;
 }
