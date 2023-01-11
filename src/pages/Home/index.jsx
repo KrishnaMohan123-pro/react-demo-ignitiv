@@ -18,19 +18,19 @@ export default function Home() {
     const classes = useStyles();
     const data = {
         name: [
-        { stream: 'Xstore Developer', subheading: 'Full Time | Pune', link: 'https://www.ignitiv.com/jobs/xstore-developer/' },
-        { stream: 'QA Analyst', subheading: 'Full Time | Pune', link: 'https://www.ignitiv.com/jobs/qa-analyst/' },
-        { stream: 'Software Developer (Front-End)', subheading: 'Full Time | Pune', link:
-        'https://www.ignitiv.com/jobs/software-developer-front-end-2/' },
-        { stream: 'Senior Developer (Front-End)', subheading: 'Full Time | Pune', link:
-        'https://www.ignitiv.com/jobs/senior-developer-front-end/'},
-        { stream: 'Sr. Developer / Tech Lead – eComm – Full Stack', subheading: 'Full Time | Pune', link:
-        'https://www.ignitiv.com/jobs/software-developer-front-end/'},
-        { stream: 'Back-End Sr. Developer (Analytics)', subheading: 'Full Time | Pune', link:
-        'https://www.ignitiv.com/jobs/back-end-sr-developer-analytics-2/'},
-        { stream: 'Sr. Developer (Back-End) / Tech Lead', subheading: 'Full Time | Pune', link:
-        'https://www.ignitiv.com/jobs/sr-developer-back-end-tech-lead/'}
-        ],
+            { stream: 'Xstore Developer', subheading: 'Full Time | Pune', link: 'https://www.ignitiv.com/jobs/xstore-developer/' },
+            { stream: 'QA Analyst', subheading: 'Full Time | Pune', link: 'https://www.ignitiv.com/jobs/qa-analyst/' },
+            { stream: 'Software Developer (Front-End)', subheading: 'Full Time | Pune', link:
+            'https://www.ignitiv.com/jobs/software-developer-front-end-2/' },
+            { stream: 'Senior Developer (Front-End)', subheading: 'Full Time | Pune', link:
+            'https://www.ignitiv.com/jobs/senior-developer-front-end/'},
+            { stream: 'Sr. Developer / Tech Lead – eComm – Full Stack', subheading: 'Full Time | Pune', link:
+            'https://www.ignitiv.com/jobs/software-developer-front-end/'},
+            { stream: 'Back-End Sr. Developer (Analytics)', subheading: 'Full Time | Pune', link:
+            'https://www.ignitiv.com/jobs/back-end-sr-developer-analytics-2/'},
+            { stream: 'Sr. Developer (Back-End) / Tech Lead', subheading: 'Full Time | Pune', link:
+            'https://www.ignitiv.com/jobs/sr-developer-back-end-tech-lead/'}
+            ],
         id: [1]
     };
     const items = [{
@@ -77,7 +77,7 @@ export default function Home() {
                 path of expedited career growth!
             </Typography>
             <Typography variant="body1" gutterBottom>
-                Ignitiv provide a mock interview platform for fresher/experinced technical questions including a wide variety of
+                Ignitiv provide a mock interview platform for fresher/experienced technical questions including a wide variety of
                 topics like:
             </Typography>
             <Typography variant="h6" component="h4" gutterBottom>
@@ -99,7 +99,6 @@ export default function Home() {
                             </Link>
                         </Pulse>
                     </Grid>
-
                     ))}
                 </Grid>
                 ))}
