@@ -18,6 +18,10 @@ function getUserFromDB(id) {
     return getDoc(doc(db, id, 'userInfo'))
 }
 
+function addUserMarksToDB(userData) {
+    return setDoc(doc(db, userData, 'marks'), {...userData})
+}
+
 export {
-    createUser, signIn, addUserToDB, getUserFromDB
+    createUser, signIn, addUserToDB, getUserFromDB, addUserMarksToDB
 };
