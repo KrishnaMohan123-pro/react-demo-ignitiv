@@ -1,0 +1,33 @@
+.addressAndContact{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 15px;
+}
+.sectionHeading{
+    color: #ffffff;
+    width: 200px;
+}
+.addressSection,.contactSection{
+    color: #ffffff;
+    width: 200px;
+}
+.addressSection{
+    display: inline-flex;
+}
+.phoneNumber,.emailId{
+    display: inline-flex;
+    color: #ffffff;
+    text-decoration:  none;
+    padding-top: 15px;
+
+}
+.phoneNumber:hover{
+    border-bottom: 1px solid #ffffff;
+}
+.emailId:hover{
+    border-bottom: 1px solid #ffffff;
+}
+.paddingleft10{
+    padding-left: 10px;
+}

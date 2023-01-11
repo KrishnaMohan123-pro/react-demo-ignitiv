@@ -1,0 +1,14 @@
+.copyrightSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-top: 2px solid #ffffff;
+}
+.copyrightText{
+    color: #ffffff;
+    display: inline-flex;
+}
+.copyrightTextSection{
+    padding-left: 10px;
+}
