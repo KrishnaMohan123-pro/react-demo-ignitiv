@@ -55,7 +55,7 @@ return (
         path of expedited career growth!
     </Typography>
     <Typography variant="body1" gutterBottom>
-        Ignitiv provide a mock interview platform for fresher/experinced technical questions including a wide variety of
+        Ignitiv provide a mock interview platform for fresher/experienced technical questions including a wide variety of
         topics like:
     </Typography>
     <Typography variant="h6" component="h4" gutterBottom>
