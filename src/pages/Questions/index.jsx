@@ -32,7 +32,6 @@ export default function Questions() {
     return (<div>
         {category && category !== 'null' ?
                 <div>
-                  <h1>Questions</h1>
                   <QuestionCard data={questionsData.questions} />
                 </div> :
             <div>Please check the query</div>}

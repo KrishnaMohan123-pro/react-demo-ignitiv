@@ -1,7 +1,6 @@
 import React from "react";
-import AliceCarousel from '../../components/Carousel/AliceCarousel';
 import Carousel from '../../components/Carousel/CarouselMultislide';
-// import SimpleSlider from '../../components/Carousel/SlickCarousel';
+import SimpleSlider from '../../components/Carousel/SlickCarousel';
 import './index.css';
 // import { Link as RouterLink } from 'react-router-dom'
 import { makeStyles } from "@material-ui/core/styles";
@@ -14,7 +13,6 @@ flexGrow: 1,
 }
 }));
 export default function Home() {
-    // console.log('Images', Images);
     const classes = useStyles();
     const data = {
         name: [
@@ -55,7 +53,7 @@ export default function Home() {
     ]
     return (
         <div className='main'>
-            <AliceCarousel items={items} />
+            <SimpleSlider items={items}/>
             <Typography variant="h5" component="h1" gutterBottom>
                 Ignitiv Interview Test
             </Typography>
@@ -104,7 +102,6 @@ export default function Home() {
                 ))}
             </div>
             <Carousel items={items} />
-            {/* <SimpleSlider items={items}/> */}
         </div>
     )
 }
