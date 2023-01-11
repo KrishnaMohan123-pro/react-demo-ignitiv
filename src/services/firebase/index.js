@@ -11,11 +11,11 @@ function signIn(email, password) {
 }
 
 function addUserToDB(userData) {
-    return setDoc(doc(db, 'users', userData.id), {...userData})
+    return setDoc(doc(db, userData.id, 'userInfo'), {...userData})
 }
 
 function getUserFromDB(id) {
-    return getDoc(doc(db, 'users', id))
+    return getDoc(doc(db, id, 'userInfo'))
 }
 
 export {
