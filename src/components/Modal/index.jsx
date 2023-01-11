@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
             >
                 <Fade in={open}>
                     <div className={classes.paper}>
-                        <LoginForm/>
+                        <LoginForm openModal={setOpen} />
                     </div>
                 </Fade>
             </Modal>

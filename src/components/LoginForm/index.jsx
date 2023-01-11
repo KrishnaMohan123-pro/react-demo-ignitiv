@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import "./index.css";
 import { signIn } from '../../services/firebase';
 
-export default function LoginForm() {
+export default function LoginForm(props) {
     const [showLoginForm, setShowLoginForm] = useState(true);
     // state to store login form data
     const [loginData, setLoginData] = useState({email: '', password: ''});
@@ -16,7 +16,7 @@ export default function LoginForm() {
         phone: '',
         password: ''
     });
-    function handleClick(e){
+    function handleSwitchForm(e){
         e.preventDefault();
         if (showLoginForm) setShowLoginForm(false);
         else setShowLoginForm(true);
@@ -61,6 +61,7 @@ export default function LoginForm() {
             .catch(e => console.log("Login Failed", e));
         } else {
             console.log('register form data', signUpData);
+            props.openModal(false);
         }
         
     }
@@ -78,7 +79,7 @@ export default function LoginForm() {
             <br/>
             <hr/>
             <br/>
-            <p>New user? <Button color="secondary" size="small" style={{width: 'auto'}} onClick={handleClick}>Register</Button></p>
+            <p>New user? <Button color="secondary" size="small" style={{width: 'auto'}} onClick={handleSwitchForm}>Register</Button></p>
           </div>
         );
     }
@@ -94,7 +95,7 @@ export default function LoginForm() {
                     Sign Up
                 </Button>
             </form>
-            <Button color="secondary" size="small" style={{width: 'auto'}} onClick={handleClick}>Login</Button>
+            <Button color="secondary" size="small" style={{width: 'auto'}} onClick={handleSwitchForm}>Login</Button>
         </div>
     )  
 }
