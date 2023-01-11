@@ -5,6 +5,7 @@ import QuestionCard from "../../components/Questioncard"
 import fetchApi from "../../services/quizapi";
 import createQuery from "../../services/quizapi/utility";
 
+import isLoggedIn from "../../utility/userLoginStatus";
 
 export default function Questions() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -25,7 +26,7 @@ export default function Questions() {
             })
         }
     }, [category, limit, difficulty, isUserLoggedIn]);
-    if(isUserLoggedIn === 'false') {
+    if(!isLoggedIn) {
         return <div>
             Please Login first
         </div>
