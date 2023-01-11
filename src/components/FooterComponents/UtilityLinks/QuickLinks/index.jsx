@@ -16,10 +16,10 @@ export default function QuickLinks() {
     }
   return (
     <div className='QuickLinksSection'>
-      <h3>Quick Links</h3>
+      <h3>Sample Test Links</h3>
         <Grid container spacing={3}>
             {quizApiParams.categories.map((item, index) => {
-                return <Grid item xs={12} key={index}><Link to={'/questions?category=' + item + '&limit=' + limit + '&difficulty=' + difficulty} key={index} className="nav-items" onClick={gotoTop}>{item}</Link></Grid>
+                return <Grid item xs={4} key={index}><Link to={'/questions?category=' + item + '&limit=' + limit + '&difficulty=' + difficulty} key={index} className="nav-items" onClick={gotoTop}>{item}</Link></Grid>
             })}
         </Grid>
     </div>
