@@ -1,5 +1,5 @@
 import { auth, db } from './config';
-import {  createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import {  createUserWithEmailAndPassword, signInWithEmailAndPassword , onAuthStateChanged, signOut} from 'firebase/auth'
 import {  doc, setDoc, getDoc } from 'firebase/firestore'
 
 function createUser(email, password) {
@@ -8,6 +8,23 @@ function createUser(email, password) {
 
 function signIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password)
+}
+
+function isUserLoggedIn() {
+    onAuthStateChanged(auth, user => {
+     if (user) {
+         document.cookie = "isUserLoggedIn = true; path=/";
+     } else {
+         document.cookie = "isUserLoggedIn = false; path=/";
+     }
+    })
+ }
+
+function logout() {
+    signOut(auth)
+    .then(() => {
+        console.log('logged out successfully');
+    })
 }
 
 function addUserToDB(userData) {
@@ -22,6 +39,7 @@ function addUserMarksToDB(userData) {
     return setDoc(doc(db, userData, 'marks'), {...userData})
 }
 
+
 export {
-    createUser, signIn, addUserToDB, getUserFromDB, addUserMarksToDB
+    createUser, signIn, addUserToDB, getUserFromDB, addUserMarksToDB, isUserLoggedIn, logout
 };
