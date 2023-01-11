@@ -1,15 +1,12 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import QuestionCard from "../../components/Questioncard"
 
 import fetchApi from "../../services/quizapi";
 import createQuery from "../../services/quizapi/utility";
 
-import { UserContext } from "../../data/userContext";
 
 export default function Questions() {
-    const value = useContext(UserContext);
-    console.log('context value', value)
     const [searchParams, setSearchParams] = useSearchParams();
     const category = searchParams.get('category');
     const limit = searchParams.get('limit') ? searchParams.get('limit') : '10';

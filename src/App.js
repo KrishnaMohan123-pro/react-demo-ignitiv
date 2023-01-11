@@ -5,7 +5,6 @@ import Body from './layouts/Body';
 import Header from './layouts/Header'
 import Footer from './layouts/Footer';
 
-import { UserContext } from './data/userContext';
 
 
 function App() {
@@ -29,7 +28,6 @@ function App() {
   // });
 
   return (
-    <UserContext.Provider value={{userLoggedIn: false}}>
       <div className="App">
       <BrowserRouter>
           <Header />
@@ -37,7 +35,6 @@ function App() {
           <Footer />
       </BrowserRouter>
       </div>
-    </UserContext.Provider>
   );
 }
 
