@@ -1,11 +1,11 @@
 import { BrowserRouter } from 'react-router-dom';
-
+import { addUserToDB, createUser, getUserFromDB, signIn } from './services/firebase';
 import './App.css';
 import Body from './layouts/Body';
 import Header from './layouts/Header'
 import Footer from './layouts/Footer';
 
-import { addUserToDB, createUser, getUserFromDB, signIn } from './services/firebase';
+
 
 function App() {
   // Please check the process to add a user to db, and get the user data from 
@@ -28,13 +28,13 @@ function App() {
   // });
 
   return (
-    <div className="App">
-    <BrowserRouter>
-        <Header />
-        <Body />
-        <Footer />
-    </BrowserRouter>
-    </div>
+      <div className="App">
+      <BrowserRouter>
+          <Header />
+          <Body />
+          <Footer />
+      </BrowserRouter>
+      </div>
   );
 }
 

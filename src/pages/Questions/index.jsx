@@ -8,6 +8,10 @@ import createQuery from "../../services/quizapi/utility";
 
 export default function Questions() {
     const [searchParams, setSearchParams] = useSearchParams();
+    const isUserLoggedInCookie = document.cookie
+                            .split('; ')
+                            .filter(c => c.includes('isUserLoggedIn'));
+    const isUserLoggedIn = isUserLoggedInCookie.length > 0 ? isUserLoggedInCookie[0].split('=')[1] : 'false';
     const category = searchParams.get('category');
     const limit = searchParams.get('limit') ? searchParams.get('limit') : '10';
     const difficulty = searchParams.get('difficulty') ? searchParams.get('difficulty') : 'easy';
@@ -20,7 +24,12 @@ export default function Questions() {
                 setQuestionsData({questions:data, isLoading: false});
             })
         }
-    }, [category, limit, difficulty]);
+    }, [category, limit, difficulty, isUserLoggedIn]);
+    if(isUserLoggedIn === 'false') {
+        return <div>
+            Please Login first
+        </div>
+    }
     if(questionsData.isLoading) {
         return (<div>
             Loading
