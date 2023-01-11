@@ -60,6 +60,7 @@ export default function LoginForm(props) {
             .then(res => {
                 console.log("Successfully logged in", res);
                 isUserLoggedIn();
+                window.location.reload();
             })
             .catch(e => console.log("Login Failed", e));
         } else {
