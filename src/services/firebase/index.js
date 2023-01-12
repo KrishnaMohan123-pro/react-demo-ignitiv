@@ -10,10 +10,10 @@ function signIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password)
 }
 
-function isUserLoggedIn() {
+function isUserLoggedIn(id) {
     onAuthStateChanged(auth, user => {
      if (user) {
-         document.cookie = "isUserLoggedIn = true; path=/";
+         document.cookie = `isUserLoggedIn = true|${id}; path=/`;
      } else {
          document.cookie = "isUserLoggedIn = false; path=/";
      }
@@ -37,11 +37,22 @@ function getUserFromDB(id) {
     return getDoc(doc(db, id, 'userInfo'))
 }
 
-function addUserMarksToDB(userData) {
-    return setDoc(doc(db, userData, 'marks'), {...userData})
+function addUserScoresToDB(userData) {
+    return setDoc(doc(db, userData.id, 'score'), {...userData})
+}
+
+function getUserScoresFromDb(id) {
+    return setDoc(doc(db, id, 'score'));
 }
 
 
 export {
-    createUser, signIn, addUserToDB, getUserFromDB, addUserMarksToDB, isUserLoggedIn, logout
+    createUser,
+    signIn,
+    isUserLoggedIn,
+    logout,
+    addUserToDB,
+    getUserFromDB,
+    addUserScoresToDB,
+    getUserScoresFromDb
 };
