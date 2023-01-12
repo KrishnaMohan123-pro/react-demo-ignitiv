@@ -1,0 +1,9 @@
+.UserDetails{
+    height: 500px;
+}
+.userDetailsHeading{
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(27, 5, 224);
+    text-decoration:underline;
+}
