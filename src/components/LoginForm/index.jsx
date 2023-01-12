@@ -59,7 +59,7 @@ export default function LoginForm(props) {
             signIn(loginData.email, loginData.password)
             .then(res => {
                 console.log("Successfully logged in", res);
-                isUserLoggedIn();
+                isUserLoggedIn(res.user.uid);
                 window.location.reload();
             })
             .catch(e => console.log("Login Failed", e));
@@ -73,10 +73,10 @@ export default function LoginForm(props) {
                 user.id = credentials.user.uid;
                 user.fname = signUpData.fname;
                 user.lname = signUpData.lname;
+                isUserLoggedIn(user.id);
                 return addUserToDB(user);
             })
             .then(doc => {
-                isUserLoggedIn();
                 window.location.reload();
             })
             .catch(e => {
