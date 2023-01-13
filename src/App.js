@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-import { addUserToDB, createUser, getUserFromDB, signIn } from './services/firebase';
+import { addUserScoreToDB, addUserToDB, createUser, getUser, getUserFromDB, signIn } from './services/firebase';
 import './App.css';
 import Body from './layouts/Body';
 import Header from './layouts/Header'
@@ -27,6 +27,9 @@ function App() {
   //   console.log(e);
   // });
 
+  // getting data from db for user
+  // getUser('4vlslznTZzPELOOClcPxxRF01lF2').then(res => res.forEach(r => console.log(r.data())));
+  // addUserScoreToDB({id: '4vlslznTZzPELOOClcPxxRF01lF2', marks: '5', total: '10', category: 'linux', difficulty:'easy'}).then(console.log);
   return (
       <div className="App">
       <BrowserRouter>

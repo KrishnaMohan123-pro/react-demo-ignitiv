@@ -1,6 +1,6 @@
 import { auth, db } from './config';
 import {  createUserWithEmailAndPassword, signInWithEmailAndPassword , onAuthStateChanged, signOut} from 'firebase/auth'
-import {  doc, setDoc, getDoc } from 'firebase/firestore'
+import {  doc, setDoc, getDoc, getDocs, collection } from 'firebase/firestore'
 
 function createUser(email, password) {
     return createUserWithEmailAndPassword(auth, email, password)
@@ -37,12 +37,16 @@ function getUserFromDB(id) {
     return getDoc(doc(db, id, 'userInfo'))
 }
 
-function addUserScoresToDB(userData) {
-    return setDoc(doc(db, userData.id, 'score'), {...userData})
+function addUserScoreToDB(data) {
+    return setDoc(doc(db, data.id, 'score' + data.category + data.difficulty), {...data})
 }
 
-function getUserScoresFromDb(id) {
-    return setDoc(doc(db, id, 'score'));
+function getUserScoreFromDb(id, category, difficulty) {
+    return setDoc(doc(db, id, 'score' + category + difficulty));
+}
+
+function getUser(id) {
+    return getDocs(collection(db, id));
 }
 
 
@@ -53,6 +57,7 @@ export {
     logout,
     addUserToDB,
     getUserFromDB,
-    addUserScoresToDB,
-    getUserScoresFromDb
+    addUserScoreToDB,
+    getUserScoreFromDb,
+    getUser
 };
