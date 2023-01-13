@@ -8,8 +8,15 @@ import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import './index.css';
 import AnswerCard from '../AnswerCard';
+import { useSearchParams } from 'react-router-dom';
+import { addUserScoreToDB } from '../../services/firebase';
+import userId from '../../utility/getUserIdFromCookie';
 
 function QuestionCard(props) {
+    const [searchParams, setSearchParams] = useSearchParams();
+    const category = searchParams.get('category');
+    const difficulty = searchParams.get('difficulty');
+    const limit = searchParams.get('limit');
     const Data = props.data;
     const [disable, setDisable] = React.useState(false);
     const [totalCorrectAnswer, setTotalCorrectAnswer] = useState('');
@@ -33,8 +40,15 @@ function QuestionCard(props) {
         }
       }
       var CorrectAnswers = Object.keys(answers).map((key) => [Number(key), answers[key]]);
-     setTotalCorrectAnswer("Correct Answers: "+CorrectAnswers.length)
+      setTotalCorrectAnswer("Correct Answers: "+CorrectAnswers.length)
       setDisable(true);
+      const payload = {};
+      payload.id = userId;
+      payload.category = category.toLowerCase();
+      payload.difficulty = difficulty.toLowerCase();
+      payload.marks = CorrectAnswers.length
+      payload.total = parseInt(limit)
+      addUserScoreToDB(payload);
     }
 
         return (
