@@ -13,12 +13,13 @@ export default function UserData() {
     const isUserLoggedInID = isUserLoggedInCookie.length > 0 ? isUserLoggedInCookie[0].split('|')[1] : '';
      const id= isUserLoggedInID;
     useEffect(() => {
+        // console.log("id", id);
         getUserFromDB(id)
         .then(res => {
              setUserData({userData: res._document.data.value.mapValue.fields, isLoading: false});
         })
     }, [id]);
-
+    console.log("userData", userData);
     if(isLoggedIn){
         if(userData.isLoading) {
             return <div>Loading</div>

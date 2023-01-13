@@ -10,37 +10,28 @@ import { Container } from '@material-ui/core';
 function AnswerCard(props) {
     const item = props.item;
     const Id = item.id;
-    //   console.log(item);
     const [value, setValue] = useState('');
-    // const[answer, setAnswer] = useState('');
-    // console.log("item.correct_answer", item.correct_answer);
     const handleChange = (event) => {
       setValue(event.target.value);
-    //   console.log(item.correct_answers[event.target.value]);
             if(item.correct_answers[event.target.value] === "true"){
-                // setAnswer('Answer is correct');
                 props.handleAnswerClick(prev=>{
                     const newObj = prev; 
                     newObj[Id] = true;
                     return newObj;
                 })
+                props.onAnswerClick(prev=>{
+                    const newObj = prev; 
+                    newObj[Id] = true;
+                    return newObj;
+                })
               }else{
-                // setAnswer('Answer is wrong');
-                // props.handleAnswerClick(prev=>{
-                //     const newobj = prev; 
-                //     newobj[Id] = false;
-                //     return newobj;
-                // })
+                props.onAnswerClick(prev=>{
+                    const newObj = prev; 
+                    newObj[Id] = false;
+                    return newObj;
+                })
               }
     };
-    // const submitQuestionCard=()=>{
-        
-    //     if(item.correct_answer === value){
-    //         setAnswer('Answer is correct');
-    //       }else{
-    //         setAnswer('Answer is wrong');
-    //       }
-    //   }
     return(
         <Container>
             <RadioGroup className='answerCardRadioGroup' aria-label={item.question} name={item.question} value={value} onChange={handleChange}>

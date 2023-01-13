@@ -2,7 +2,7 @@ import React from "react";
 import Carousel from '../../components/Carousel/CarouselMultislide';
 import SimpleSlider from '../../components/Carousel/SlickCarousel';
 import './index.css';
-// import { Link as RouterLink } from 'react-router-dom'
+//  import { Link as RouterLink } from 'react-router-dom'
 import { makeStyles } from "@material-ui/core/styles";
 import {Grid, Card, Link, Typography, CardHeader, CardActionArea} from "@material-ui/core/";
 import Pulse from 'react-reveal/Pulse';

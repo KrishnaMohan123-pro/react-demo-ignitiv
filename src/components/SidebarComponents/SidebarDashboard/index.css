@@ -1,0 +1,20 @@
+.dashboardSidebar{
+    padding: 15px;
+    padding-top: 30px;
+}
+.dashboardSidebarItems {
+    display: block !important;
+    padding-top: 10px;
+}
+.dashboardSidebarLinks{
+    text-decoration: none;
+    font-size: 20px !important;
+    text-align: left;
+    font-weight: 700;
+    color: black;
+}
+.dashboardSidebarLinks:hover{
+    text-decoration: underline;
+    color: blue;
+    background-color: azure;
+}
