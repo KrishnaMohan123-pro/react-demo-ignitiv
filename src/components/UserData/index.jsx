@@ -17,7 +17,7 @@ export default function UserData() {
         .then(res => {
              setUserData({userData: res._document.data.value.mapValue.fields, isLoading: false});
         })
-    }, [userData]);
+    }, [id]);
 
     if(isLoggedIn){
         if(userData.isLoading) {
