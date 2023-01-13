@@ -13,7 +13,8 @@ export default function Header() {
                         <img className="ignitivLogo" src={logo} alt="Ignitiv Logo"></img>
                     </Link>
                 </Grid>
-                <Grid className="blankSpace" item xs={5}></Grid>
+                <Grid className="blankSpace" item xs={4}> </Grid>
+                <Grid className="DashboardLink" item xs={1}><Link to='/dashboard'>Dashboard</Link></Grid>
                 <Grid className="loginLink" item xs={2}>
                     <Modal buttonText={`Sign In / Sign Up`} />
                 </Grid>
