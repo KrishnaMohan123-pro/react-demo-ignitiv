@@ -50,7 +50,7 @@ export default function UserData() {
         )
     }
     else{
-        <h1>Please Login To check User Details</h1>
+        return <h1>Please Login To check User Details</h1>
     }
 }
 
