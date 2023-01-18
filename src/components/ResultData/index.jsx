@@ -1,6 +1,7 @@
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {Card, CardContent, Typography, Grid} from '@material-ui/core';
 import isLoggedIn from "../../utility/userLoginStatus";
+
 import './index.css';
 
  function ResultData(props) {
