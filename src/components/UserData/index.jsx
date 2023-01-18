@@ -1,52 +1,44 @@
 
 import isLoggedIn from "../../utility/userLoginStatus";
-import {useState, useEffect} from 'react'
-import { getUserFromDB } from '../../services/firebase';
+import {Card, CardContent, Typography} from '@material-ui/core';
+import './index.css';
 
-import {Card, CardActions, CardContent, Typography, Button} from '@material-ui/core';
-import './index.css'
-export default function UserData() {
-    const [userData, setUserData] = useState({isLoading: true});
-    const isUserLoggedInCookie = document.cookie
-                            .split('; ')
-                            .filter(c => c.includes('isUserLoggedIn'));
-    const isUserLoggedInID = isUserLoggedInCookie.length > 0 ? isUserLoggedInCookie[0].split('|')[1] : '';
-     const id= isUserLoggedInID;
-    useEffect(() => {
-        getUserFromDB(id)
-        .then(res => {
-             setUserData({userData: res._document.data.value.mapValue.fields, isLoading: false});
-        })
-    }, [id]);
-
+export default function UserData(props) {
+    const userData = props.userDetails.data;
     if(isLoggedIn){
-        if(userData.isLoading) {
+        if(props.userDetails.isLoading) {
             return <div>Loading</div>
         }
         return (
-
-            <Card className='UserDetails'>
-                <CardContent>
-                    <Typography component="h1" className='userDetailsHeading' color="textSecondary" gutterBottom>
-                        User Data
-                    </Typography>
-                    <Typography component="p">
-                        <strong>First Name: </strong> {userData.userData.fname.stringValue}
-                    </Typography>
-                    <Typography component="p">
-                        <strong>Last Name: </strong> {userData.userData.lname.stringValue}
-                    </Typography>
-                    <Typography component="p">
-                           <strong>email: </strong>  {userData.userData.email.stringValue}
-                    </Typography>
-                    <Typography component="p">
-                        <strong>Phone No: </strong>{userData.userData.phone.stringValue}
-                    </Typography>
-                </CardContent>
-                {/* <CardActions>
-                    <Button size="small">Learn More</Button>
-                </CardActions> */}
-            </Card>
+            <>
+            {userData.map((item, index)=>
+                {
+                    if(item.email){
+                        return(
+                            <Card className='UserDetails' key={item.id}>
+                                <CardContent>
+                                    <Typography component="h1" className='userDetailsHeading' color="textSecondary" gutterBottom>
+                                        User Data
+                                    </Typography>
+                                    <Typography component="p">
+                                        <strong>First Name: </strong> {item.fname}
+                                    </Typography>
+                                    <Typography component="p">
+                                        <strong>Last Name: </strong> {item.lname}
+                                    </Typography>
+                                    <Typography component="p">
+                                            <strong>email: </strong>  {item.email}
+                                    </Typography>
+                                    <Typography component="p">
+                                        <strong>Phone No: </strong>{item.phone}
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                        )
+                    }
+                }
+                )}
+            </>
         )
     }
     else{

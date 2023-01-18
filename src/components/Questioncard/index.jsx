@@ -12,6 +12,7 @@ import { useSearchParams } from 'react-router-dom';
 import { addUserScoreToDB } from '../../services/firebase';
 import userId from '../../utility/getUserIdFromCookie';
 
+// import CircularProgress from '@material-ui/core/CircularProgress';
 function QuestionCard(props) {
     const [searchParams, setSearchParams] = useSearchParams();
     const category = searchParams.get('category');
@@ -20,27 +21,22 @@ function QuestionCard(props) {
     const Data = props.data;
     const [disable, setDisable] = React.useState(false);
     const [totalCorrectAnswer, setTotalCorrectAnswer] = useState('');
-    const [answers, setAnswers] = useState({});
-    const AnswerData = [];
-    const CorrectAnswerData = [];
-    for(let j=0; j<Data.length; j++){
-      CorrectAnswerData.push({
-        name: Data[j].question,
-        answer: Data[j].correct_answer
-      })
-    }
+    const [totalCorrectAnswerPercentage, setTotalCorrectAnswerPercentage] = useState('');
+    const [totalAnsweredQuestion, setTotalAnsweredQuestion] = useState('');
+    const [correctAnswers, setCorrectAnswers] = useState({});
+    const [answeredQuestion, setAnsweredQuestion] = useState({});
+    const totalQuestion = Data.length;
+    const singleQuestionPercentage = 100 / totalQuestion;
+
+    // console.log("answeredQuestion", answeredQuestion);
     const submitTest=(event)=>{
       event.preventDefault();
-      for(let i=1; i<event.target.length; i++){
-        if(event.target[i].checked === true){
-          AnswerData.push({
-            name: event.target[i].name,
-            answer: event.target[i].defaultValue
-          });
-        }
-      }
-      var CorrectAnswers = Object.keys(answers).map((key) => [Number(key), answers[key]]);
-      setTotalCorrectAnswer("Correct Answers: "+CorrectAnswers.length)
+      var CorrectAnswers = Object.keys(correctAnswers).map((key) => [Number(key), correctAnswers[key]]);
+      var QuestionAnswered = Object.keys(answeredQuestion).map((key) => [Number(key), answeredQuestion[key]]);
+      const correctAnswerPercentage = singleQuestionPercentage * CorrectAnswers.length;
+      setTotalCorrectAnswer("Correct Answers: "+CorrectAnswers.length +" Questions");
+      setTotalCorrectAnswerPercentage("Correct Answers Percentage: "+correctAnswerPercentage+"% out of 100%");
+      setTotalAnsweredQuestion("Question Attempted: " + QuestionAnswered.length + " out of "+ totalQuestion + " Questions");
       setDisable(true);
       const payload = {};
       payload.id = userId;
@@ -68,7 +64,7 @@ function QuestionCard(props) {
                                             </Typography>
                                           </CardContent>
                                           <CardActions>
-                                              <AnswerCard item={item} handleAnswerClick={setAnswers} />
+                                              <AnswerCard item={item} handleAnswerClick={setCorrectAnswers} onAnswerClick={setAnsweredQuestion} />
                                           </CardActions>
                                         </Card>
                                     </Grid>
@@ -78,6 +74,9 @@ function QuestionCard(props) {
                   <Button variant="contained" color="primary" type='submit' disabled={disable} > Submit Test </Button>
                 <br/>
                 <p> {totalCorrectAnswer}</p>
+                <p> {totalCorrectAnswerPercentage}</p>
+
+                <p>{totalAnsweredQuestion}</p>
                 </FormControl>
               </form>
             </div>
