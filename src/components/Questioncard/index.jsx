@@ -31,8 +31,6 @@ function QuestionCard(props) {
     // console.log("answeredQuestion", answeredQuestion);
     const submitTest=(event)=>{
       event.preventDefault();
-      // var CorrectAnswers = Object.keys(answers).map((key) => [Number(key), answers[key]]);
-      // setTotalCorrectAnswer("Correct Answers: "+CorrectAnswers.length)
       var CorrectAnswers = Object.keys(correctAnswers).map((key) => [Number(key), correctAnswers[key]]);
       var QuestionAnswered = Object.keys(answeredQuestion).map((key) => [Number(key), answeredQuestion[key]]);
       const correctAnswerPercentage = singleQuestionPercentage * CorrectAnswers.length;
