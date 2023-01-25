@@ -32,7 +32,7 @@ function QuestionCard(props) {
     const [examRulesDisplay, setExamRulesDisplay] = useState('');
     const totalQuestion = Data.length;
     // const singleQuestionPercentage = 100 / totalQuestion;
-    const INITIAL_COUNT = useDeferredValue(totalQuestion * 6);
+    const INITIAL_COUNT = useDeferredValue(totalQuestion * 60);
     useEffect(() => {
       setFormDisplay('displayNone');
       setAfterExamDisplay('displayNone');
